@@ -38,8 +38,6 @@ int check(int a,int b,int c,int resulta,int resultb,int resultc)
     return posright;
 }
 
-
-
 int main()
 {
     int resulta,resultb,resultc,a,b,c,times,wintime=0,losetime=0;
