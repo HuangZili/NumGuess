@@ -33,19 +33,7 @@ int check(int a,int b,int c,int resulta,int resultb,int resultc)
     int numright=0;
     posright=(a==resulta)+(b==resultb)+(c==resultc);
     //get rid of the case a=b||a=c.
-    if ((resulta==a)||(resulta==b)||(resulta==c))
-    {
-        ++numright;
-    }
-     if ((resultb==a)||(resultb==b)||(resultb==c))
-    {
-        ++numright;
-    }
-     if ((resultc==a)||(resultc==b)||(resultc==c))
-    {
-        ++numright;
-    }
-    numright=numright-posright;
+    numright=(a==resultb||a==resultc)+(b==resulta||b==resultc)+(c==resulta||c==resultb);
     cout<<posright<<"A"<<numright<<"B"<<endl;
     return posright;
 }
@@ -57,7 +45,7 @@ int main()
     int resulta,resultb,resultc,a,b,c,times,wintime=0,losetime=0;
     int *p;
     char play_or_not;
-    cout<<"ÐèÒªÍæÓÎÏ·Âð(Y/N)?"<<endl;
+    cout<<"éœ€è¦çŽ©æ¸¸æˆå—(Y/N)?"<<endl;
     cin>>play_or_not;
     while (play_or_not!='N')
     {
@@ -72,24 +60,24 @@ int main()
             while (1)
             {
                 times=times+1;
-                cout<<"ÇëÊäÈëÄã²Â²âµÄÊý×Ö"<<endl;
+                cout<<"è¯·è¾“å…¥ä½ çŒœæµ‹çš„æ•°å­—"<<endl;
                 cin>>a>>b>>c;
                 if (check(a,b,c,resulta,resultb,resultc)==3)
                 {
-                    cout<<"¹§Ï²£¬Äã²Â¶ÔÁË"<<endl;
+                    cout<<"æ­å–œï¼Œä½ çŒœå¯¹äº†"<<endl;
                     wintime=wintime+1;
                     break;
                 }
                 if (times==7)
                 {
-                    cout<<"ºÜÒÅº¶£¬ÄãÃ»ÓÐÔÚ¹æ¶¨´ÎÊýÄÚ²Â¶Ô¡£´ð°¸ÊÇ "<<resulta<<" "<<resultb<<" "<<resultc<<endl;
+                    cout<<"å¾ˆé—æ†¾ï¼Œä½ æ²¡æœ‰åœ¨è§„å®šæ¬¡æ•°å†…çŒœå¯¹ã€‚ç­”æ¡ˆæ˜¯ "<<resulta<<" "<<resultb<<" "<<resultc<<endl;
                     losetime=losetime+1;
                     break;
                 }
             }
         }
-        cout<<"ÐèÒªÍæÓÎÏ·Âð(Y/N)?"<<endl;
+        cout<<"éœ€è¦çŽ©æ¸¸æˆå—(Y/N)?"<<endl;
         cin>>play_or_not;
     }
-    cout<<"ÄãÒ»¹²ÍæÁË"<<wintime+losetime<<"¾Ö£¬Ó®ÁË"<<wintime<<"¾Ö£¬ÊäÁË"<<losetime<<"¾Ö"<<endl;
+    cout<<"ä½ ä¸€å…±çŽ©äº†"<<wintime+losetime<<"å±€ï¼Œèµ¢äº†"<<wintime<<"å±€ï¼Œè¾“äº†"<<losetime<<"å±€"<<endl;
 }
