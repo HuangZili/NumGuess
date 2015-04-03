@@ -43,7 +43,7 @@ int main()
     int resulta,resultb,resultc,a,b,c,times,wintime=0,losetime=0;
     int *p;
     char play_or_not;
-    cout<<"需要玩游戏吗(Y/N)?"<<endl;
+    cout<<"Do you want to play(Y/N)?"<<endl;
     cin>>play_or_not;
     while (play_or_not!='N')
     {
@@ -58,24 +58,24 @@ int main()
             while (1)
             {
                 times=times+1;
-                cout<<"请输入你猜测的数字"<<endl;
+                cout<<"Please enter the number you guess."<<endl;
                 cin>>a>>b>>c;
                 if (check(a,b,c,resulta,resultb,resultc)==3)
                 {
-                    cout<<"恭喜，你猜对了"<<endl;
+                    cout<<"Congratulations! You are right."<<endl;
                     wintime=wintime+1;
                     break;
                 }
                 if (times==7)
                 {
-                    cout<<"很遗憾，你没有在规定次数内猜对。答案是 "<<resulta<<" "<<resultb<<" "<<resultc<<endl;
+                    cout<<"Sorry, you failed. The right answer is "<<resulta<<" "<<resultb<<" "<<resultc<<endl;
                     losetime=losetime+1;
                     break;
                 }
             }
         }
-        cout<<"需要玩游戏吗(Y/N)?"<<endl;
+        cout<<"Do you want to play(Y/N)?"<<endl;
         cin>>play_or_not;
     }
-    cout<<"你一共玩了"<<wintime+losetime<<"局，赢了"<<wintime<<"局，输了"<<losetime<<"局"<<endl;
+    cout<<"You have played "<<wintime+losetime<<" times and win "<<wintime<<" times and loses "<<losetime<<" times. "<<endl;
 }
