@@ -5,24 +5,24 @@
 using namespace std;
 
 //generate 3 different random number.
-int gener_random(int *p)
+int gener_random(int &resulta,int &resultb,int &resultc)
 {
-    int resulta,resultb,resultc;
+    int answera,answerb,answerc;
     srand(time(NULL));
-    resulta=rand()%10;
-    resultb=rand()%10;
-    resultc=rand()%10;
-    while (resultb==resulta)
+    answera=rand()%10;
+    answerb=rand()%10;
+    answerc=rand()%10;
+    while (answerb==answera)
     {
-        resultb=rand()%10;
+        answerb=rand()%10;
     }
-    while ((resultc==resulta)||(resultc==resultb))
+    while ((answerc==answera)||(answerc==answerb))
     {
-        resultc=rand()%10;
+        answerc=rand()%10;
     }
-    *p=resulta;
-    *(p+1)=resultb;
-    *(p+2)=resultc;
+    resulta=answera;
+    resultb=answerb;
+    resultc=answerc;
 }
 
 //check the game result, and return the number of right position.
@@ -50,10 +50,7 @@ int main()
         //the process of the game.
         if (play_or_not=='Y')
         {
-            gener_random(p);
-            resulta=*p;
-            resultb=*(p+1);
-            resultc=*(p+2);
+			gener_random(resulta,resultb,resultc);
             times=0;
             while (1)
             {
